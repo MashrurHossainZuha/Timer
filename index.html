@@ -1,11 +1,496 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz Timer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shri Sanatan Mandir</title>
+  <meta name="description" content="A modern, mobile-first website for Shri Sanatan Mandir showcasing rituals, events, services, and opportunities to contribute." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <button onclick="startQuiz()">Start Quiz</button>
-    <script src="script.js"></script>
+<body class="bg-amber-50 text-slate-900">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="sticky top-0 z-50 bg-amber-50/95 backdrop-blur border-b border-amber-200 shadow-sm">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6" aria-label="Primary navigation">
+      <a href="#" class="flex items-center gap-3" aria-label="Shri Sanatan Mandir home">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-rose-400 text-xl font-semibold text-white shadow-lg">ॐ</span>
+        <div class="hidden flex-col sm:flex">
+          <span class="font-display text-lg font-semibold tracking-wide text-rose-700">Shri Sanatan Mandir</span>
+          <span class="text-sm text-slate-600">Tradition that unites. Service that inspires.</span>
+        </div>
+      </a>
+      <button id="mobile-menu-button" class="lg:hidden inline-flex items-center rounded-md border border-amber-300 px-3 py-2 text-sm font-medium text-rose-700 shadow-sm focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" aria-expanded="false" aria-controls="primary-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4A1 1 0 013 5zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div id="primary-menu" class="hidden w-full max-w-xl items-center justify-end gap-8 text-sm font-medium lg:flex">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#rituals">Rituals</a>
+        <a class="nav-link" href="#schedule">Timetable</a>
+        <a class="nav-link" href="#events">Events</a>
+        <a class="nav-link" href="#gallery">Gallery</a>
+        <a class="nav-link" href="#blog">Blog</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <button id="donate-button" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:from-rose-600 hover:to-amber-600 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" type="button">Donate for Seva</button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-amber-200 bg-amber-50">
+      <div class="space-y-1 px-4 py-4">
+        <a class="mobile-nav-link" href="#about">About</a>
+        <a class="mobile-nav-link" href="#rituals">Rituals</a>
+        <a class="mobile-nav-link" href="#schedule">Timetable</a>
+        <a class="mobile-nav-link" href="#events">Events</a>
+        <a class="mobile-nav-link" href="#gallery">Gallery</a>
+        <a class="mobile-nav-link" href="#donations">Donations</a>
+        <a class="mobile-nav-link" href="#contact">Contact</a>
+        <a class="mobile-nav-link" href="#blog">Blog</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="bg-gradient-to-br from-amber-100 via-amber-50 to-rose-100">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 lg:grid-cols-2 lg:px-6">
+        <div class="space-y-6">
+          <p class="text-sm uppercase tracking-[0.4em] text-rose-500">Sanatan Dharma</p>
+          <h1 class="font-display text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Tradition that unites. Service that inspires.</h1>
+          <p class="text-lg text-slate-700">Discover the spiritual heart of our community. Experience sacred rituals, deepen your devotion, and join seva that uplifts all beings.</p>
+          <div class="flex flex-wrap gap-4">
+            <a class="rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" href="#schedule">View Puja Schedule</a>
+            <button class="rounded-full border border-rose-300 px-6 py-3 text-sm font-semibold text-rose-600 transition hover:bg-rose-50 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" type="button" data-donate-trigger>Give for Temple Service</button>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-amber-200 via-rose-200 to-transparent blur-2xl"></div>
+          <img src="https://images.unsplash.com/photo-1578926502110-141b2f1b3cc6?auto=format&fit=crop&w=900&q=80" alt="Devotees offering aarti at the sanctum of Shri Sanatan Mandir" class="w-full rounded-3xl object-cover shadow-2xl" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr,1fr]">
+        <article class="prose prose-rose max-w-none">
+          <h2 class="font-display text-3xl font-semibold text-slate-900">About Shri Sanatan Mandir</h2>
+          <p>Rooted in the timeless wisdom of the Vedas and the Bhakti tradition, Shri Sanatan Mandir has been a sanctuary of devotion for our community since 1984. Guided by our resident priests and seva volunteers, the temple is dedicated to preserving sacred rituals and sharing their grace with all who visit.</p>
+          <p>Through daily worship, scriptural study, and cultural celebrations, we nurture the values of compassion, inclusivity, and collective upliftment. Families, elders, and youth gather here to celebrate festivals, honor life milestones, and engage in seva that supports those in need.</p>
+          <h3>Our Mission</h3>
+          <ul>
+            <li>Honor Sanatan traditions with authenticity and reverence.</li>
+            <li>Provide inclusive spiritual, cultural, and educational programs.</li>
+            <li>Serve the broader community through seva, outreach, and support.</li>
+          </ul>
+        </article>
+        <aside class="rounded-3xl bg-white/80 p-8 shadow-xl ring-1 ring-rose-100">
+          <h3 class="text-xl font-semibold text-rose-700">Resident Priests</h3>
+          <ul class="mt-6 space-y-4 text-sm text-slate-700">
+            <li>
+              <p class="font-semibold text-slate-900">Pt. Vivek Sharma</p>
+              <p>Head Priest • Vedic rituals, samskaras, scriptural discourse.</p>
+            </li>
+            <li>
+              <p class="font-semibold text-slate-900">Smt. Kavita Rao</p>
+              <p>Music &amp; Bhajan Lead • Carnatic vocalist, children’s satsang.</p>
+            </li>
+            <li>
+              <p class="font-semibold text-slate-900">Acharya Rahul Desai</p>
+              <p>Community Outreach • Youth seva, cultural education, workshops.</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="rituals" class="bg-white/80">
+      <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="font-display text-3xl font-semibold text-slate-900">Sacred Rituals &amp; Services</h2>
+          <p class="mt-4 text-lg text-slate-700">Our priests perform a full spectrum of Vedic ceremonies and modern community services. Bookings may be made in-person or online.</p>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-card">
+            <div class="service-icon">🕉️</div>
+            <h3>Daily Aarti &amp; Archana</h3>
+            <p>Morning and evening darshan with devotional chanting and offerings to the deities.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🎉</div>
+            <h3>Festival Celebrations</h3>
+            <p>Navaratri, Diwali, Janmashtami, Maha Shivaratri and more with cultural programs.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🙏</div>
+            <h3>Samskara Ceremonies</h3>
+            <p>Namkaran, Upanayan, Vivah, Griha Pravesh performed with Vedic precision.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🌿</div>
+            <h3>Ayurveda Wellness</h3>
+            <p>Holistic consultations, yoga therapy, and guided meditation sessions weekly.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">📖</div>
+            <h3>Scripture Study</h3>
+            <p>Weekly satsang exploring Bhagavad Gita, Ramayana, and Devi Mahatmyam.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🍲</div>
+            <h3>Community Seva</h3>
+            <p>Food donation drives, youth mentorship, and elder assistance initiatives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr,1fr]">
+        <div>
+          <h2 class="font-display text-3xl font-semibold text-slate-900">Daily Puja Timetable</h2>
+          <p class="mt-4 text-lg text-slate-700">Join in-person or tune in to our livestream for daily darshan. Timings may adjust on festival days—follow the announcements for updates.</p>
+          <div class="mt-8 overflow-hidden rounded-2xl border border-amber-200 bg-white shadow-lg">
+            <table class="min-w-full divide-y divide-amber-100 text-left text-sm">
+              <caption class="sr-only">Temple daily service schedule</caption>
+              <thead class="bg-amber-100/60 text-rose-700">
+                <tr>
+                  <th scope="col" class="px-6 py-3 font-semibold uppercase tracking-wide">Service</th>
+                  <th scope="col" class="px-6 py-3 font-semibold uppercase tracking-wide">Time</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-amber-100 text-slate-700">
+                <tr>
+                  <th scope="row" class="px-6 py-4 text-slate-900">Mangala Aarti &amp; Suprabhatam</th>
+                  <td class="px-6 py-4">5:30 AM</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-6 py-4 text-slate-900">Ved Path &amp; Meditation</th>
+                  <td class="px-6 py-4">6:15 AM</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-6 py-4 text-slate-900">Alankaram &amp; Darshan</th>
+                  <td class="px-6 py-4">8:00 AM</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-6 py-4 text-slate-900">Madhyana Pooja &amp; Prasad</th>
+                  <td class="px-6 py-4">12:30 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-6 py-4 text-slate-900">Evening Bhajans &amp; Satsang</th>
+                  <td class="px-6 py-4">6:00 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="px-6 py-4 text-slate-900">Sandhya Aarti &amp; Shayan</th>
+                  <td class="px-6 py-4">8:00 PM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="space-y-6 rounded-3xl bg-gradient-to-br from-amber-200/60 via-white to-rose-100 p-8 shadow-xl">
+          <h3 class="text-xl font-semibold text-rose-700">Livestream Darshan</h3>
+          <p class="text-sm text-slate-700">Unable to visit in person? Join the daily livestream for aarti, bhajans, and discourses.</p>
+          <div class="aspect-video overflow-hidden rounded-2xl shadow-inner">
+            <iframe class="h-full w-full" src="https://www.youtube.com/embed/2St4DP17H4E" title="Temple livestream" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <a class="inline-flex items-center gap-2 text-sm font-semibold text-rose-600 hover:text-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" href="#events">
+            <span>Festival announcements</span>
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="bg-rose-50">
+      <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h2 class="font-display text-3xl font-semibold text-slate-900">Upcoming Festivals &amp; Community Events</h2>
+            <p class="mt-3 text-lg text-slate-700">Stay connected with vibrant celebrations and learning opportunities. Register early to reserve your place.</p>
+          </div>
+          <button class="inline-flex items-center gap-2 rounded-full border border-rose-300 px-5 py-2 text-sm font-semibold text-rose-600 transition hover:bg-white focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" type="button" data-donate-trigger>Support the Event Fund</button>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2" id="event-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="gallery" class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="font-display text-3xl font-semibold text-slate-900">Gallery &amp; Virtual Tour</h2>
+        <p class="mt-4 text-lg text-slate-700">Moments of devotion captured in sacred light. Click an image to view it larger.</p>
+      </div>
+      <div class="mt-10 columns-1 gap-4 md:columns-2 lg:columns-3" id="gallery-grid">
+        <figure class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1566987686183-5168c9c29280?auto=format&fit=crop&w=900&q=80" alt="Durga Puja 2024 — main thakur closeup" class="gallery-image" loading="lazy" decoding="async" />
+          <figcaption>Durga Puja 2024</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80" alt="Lamp lighting ceremony at the temple courtyard" class="gallery-image" loading="lazy" decoding="async" />
+          <figcaption>Deepotsava Lights</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1602491800882-0502635976be?auto=format&fit=crop&w=900&q=80" alt="Devotees chanting bhajans inside the sanctum" class="gallery-image" loading="lazy" decoding="async" />
+          <figcaption>Bhajan Satsang</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80" alt="Children participating in cultural dance at temple" class="gallery-image" loading="lazy" decoding="async" />
+          <figcaption>Youth Cultural Arts</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1596516109370-bc3fdd5122ac?auto=format&fit=crop&w=900&q=80" alt="Volunteers serving prasad to the community" class="gallery-image" loading="lazy" decoding="async" />
+          <figcaption>Community Seva</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1603574670812-d24560880210?auto=format&fit=crop&w=900&q=80" alt="Temple sanctum with diya offerings at dusk" class="gallery-image" loading="lazy" decoding="async" />
+          <figcaption>Evening Darshan</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="donations" class="bg-gradient-to-br from-amber-100 via-white to-rose-100">
+      <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr,1fr]">
+          <div>
+            <h2 class="font-display text-3xl font-semibold text-slate-900">Sustain the Sacred Flame</h2>
+            <p class="mt-4 text-lg text-slate-700">Your seva keeps the temple doors open for darshan, education, and service. Choose a contribution level or make a custom offering.</p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-amber-200 bg-white p-6 shadow">
+                <h3 class="text-lg font-semibold text-slate-900">Monthly Seva Circle</h3>
+                <p class="mt-2 text-sm text-slate-700">Support daily aarti, prasad, and education programs with a recurring gift.</p>
+              </div>
+              <div class="rounded-2xl border border-amber-200 bg-white p-6 shadow">
+                <h3 class="text-lg font-semibold text-slate-900">Festival Sponsors</h3>
+                <p class="mt-2 text-sm text-slate-700">Celebrate Navaratri, Janmashtami, and Diwali with special puja offerings.</p>
+              </div>
+            </div>
+            <button class="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" type="button" data-donate-trigger>
+              Donate for Seva
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12l-3.75 3.75M21 12H3" />
+              </svg>
+            </button>
+          </div>
+          <div class="rounded-3xl bg-white/90 p-8 shadow-xl ring-1 ring-rose-100">
+            <h3 class="text-xl font-semibold text-rose-700">Ways to Give</h3>
+            <dl class="mt-6 space-y-4 text-sm text-slate-700">
+              <div>
+                <dt class="font-semibold text-slate-900">Online Donation</dt>
+                <dd>Secure payment portal accepts credit/debit cards, UPI, and ACH transfers.</dd>
+              </div>
+              <div>
+                <dt class="font-semibold text-slate-900">In-Person Offering</dt>
+                <dd>Visit the temple office between 9:00 AM and 7:00 PM for in-person seva contributions.</dd>
+              </div>
+              <div>
+                <dt class="font-semibold text-slate-900">Corporate Matching</dt>
+                <dd>Request a receipt for your employer’s matching gift program and multiply your seva.</dd>
+              </div>
+            </dl>
+            <a class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-rose-600 hover:text-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" href="https://example.com/donate" target="_blank" rel="noopener">Visit secure donation portal</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr,1fr]">
+        <div>
+          <h2 class="font-display text-3xl font-semibold text-slate-900">Volunteer &amp; Connect</h2>
+          <p class="mt-4 text-lg text-slate-700">We welcome hearts ready to serve. Share your interests and we will guide you to seva opportunities that resonate with your gifts.</p>
+          <form class="mt-8 space-y-6" aria-label="Volunteer contact form">
+            <div>
+              <label for="name" class="text-sm font-semibold text-slate-900">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required class="mt-2 block w-full rounded-xl border-amber-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500" />
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="email" class="text-sm font-semibold text-slate-900">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required class="mt-2 block w-full rounded-xl border-amber-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500" />
+              </div>
+              <div>
+                <label for="phone" class="text-sm font-semibold text-slate-900">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" class="mt-2 block w-full rounded-xl border-amber-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500" />
+              </div>
+            </div>
+            <div>
+              <label for="interest" class="text-sm font-semibold text-slate-900">Area of seva interest</label>
+              <select id="interest" name="interest" class="mt-2 block w-full rounded-xl border-amber-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500">
+                <option value="ritual-support">Ritual support &amp; temple care</option>
+                <option value="education">Education &amp; youth programs</option>
+                <option value="hospitality">Hospitality &amp; prasad preparation</option>
+                <option value="media">Media &amp; livestream team</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="text-sm font-semibold text-slate-900">Message</label>
+              <textarea id="message" name="message" rows="4" class="mt-2 block w-full rounded-xl border-amber-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="Tell us how you’d like to contribute"></textarea>
+            </div>
+            <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2">Submit Interest</button>
+          </form>
+        </div>
+        <div class="space-y-6">
+          <div class="overflow-hidden rounded-3xl shadow-xl">
+            <iframe title="Shri Sanatan Mandir location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.170334073975!2d-122.41941598467532!3d37.774929279759814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzMwLjMiTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sus!4v1616877482215!5m2!1sen!2sus" width="100%" height="320" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="rounded-3xl bg-white/80 p-8 shadow-xl ring-1 ring-rose-100">
+            <h3 class="text-xl font-semibold text-rose-700">Temple Hours</h3>
+            <p class="mt-2 text-sm text-slate-700">Monday – Friday: 5:30 AM – 9:00 PM<br />Saturday &amp; Sunday: 5:30 AM – 10:00 PM</p>
+            <h3 class="mt-6 text-xl font-semibold text-rose-700">Contact</h3>
+            <p class="mt-2 text-sm text-slate-700">Phone: <a href="tel:+14085551234" class="text-rose-600 hover:text-rose-700">(408) 555-1234</a><br />Email: <a href="mailto:seva@shrisanatanmandir.org" class="text-rose-600 hover:text-rose-700">seva@shrisanatanmandir.org</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="bg-rose-50">
+      <div class="mx-auto max-w-6xl px-4 py-20 lg:px-6">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="font-display text-3xl font-semibold text-slate-900">Wisdom &amp; Reflections</h2>
+          <p class="mt-4 text-lg text-slate-700">Read spiritual writings from our priests and community authors exploring dharma, devotion, and seva.</p>
+        </div>
+        <div class="mt-12 grid gap-8 md:grid-cols-3">
+          <article class="rounded-3xl border border-amber-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+            <p class="text-xs uppercase tracking-widest text-rose-500">Bhakti Insights</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Living the Gita in Daily Life</h3>
+            <p class="mt-2 text-sm text-slate-700">Practical reflections on integrating karma yoga and mindful service into every action.</p>
+            <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rose-600 hover:text-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2">Read Article</a>
+          </article>
+          <article class="rounded-3xl border border-amber-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+            <p class="text-xs uppercase tracking-widest text-rose-500">Temple Traditions</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Navaratri: Nine Nights of Divine Shakti</h3>
+            <p class="mt-2 text-sm text-slate-700">Explore the sacred stories, rituals, and symbolism behind each day of Navaratri celebrations.</p>
+            <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rose-600 hover:text-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2">Read Article</a>
+          </article>
+          <article class="rounded-3xl border border-amber-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+            <p class="text-xs uppercase tracking-widest text-rose-500">Seva Stories</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Serving with Compassion</h3>
+            <p class="mt-2 text-sm text-slate-700">How volunteers are supporting elders, families, and youth with heartfelt seva projects.</p>
+            <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-rose-600 hover:text-rose-700 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2">Read Article</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-100">
+    <div class="mx-auto max-w-6xl px-4 py-12 lg:px-6">
+      <div class="grid gap-10 lg:grid-cols-[1.2fr,1fr,1fr]">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-rose-400 text-xl font-semibold text-white shadow-lg">ॐ</span>
+            <div>
+              <p class="font-display text-lg font-semibold text-white">Shri Sanatan Mandir</p>
+              <p class="text-sm text-slate-300">Tradition that unites. Service that inspires.</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-300">1250 Devotion Avenue, Sanatana City, CA 94000</p>
+          <p class="text-sm text-slate-300">© <span id="copyright-year"></span> Shri Sanatan Mandir. All rights reserved.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-amber-300">Quick Links</h3>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li><a class="footer-link" href="#schedule">Puja Schedule</a></li>
+            <li><a class="footer-link" href="#donations">Donate</a></li>
+            <li><a class="footer-link" href="#events">Events</a></li>
+            <li><a class="footer-link" href="#contact">Volunteer</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-amber-300">Stay Connected</h3>
+          <p class="mt-4 text-sm text-slate-300">Join our newsletter for festival updates, seva opportunities, and livestream reminders.</p>
+          <form class="mt-4 flex gap-3" aria-label="Newsletter subscription">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input id="newsletter-email" type="email" required placeholder="you@example.com" class="w-full rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-white placeholder:text-slate-500 focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400" />
+            <button type="submit" class="rounded-full bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-900 shadow hover:bg-amber-300 focus:outline-none focus-visible:ring focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900">Subscribe</button>
+          </form>
+          <div class="mt-6 flex items-center gap-4">
+            <a class="footer-icon" href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.543 6.498a2.707 2.707 0 00-1.9-1.912C18.048 4.25 12 4.25 12 4.25s-6.048 0-7.643.336a2.707 2.707 0 00-1.9 1.912A28.37 28.37 0 002.25 12a28.37 28.37 0 00.207 5.502 2.707 2.707 0 001.9 1.912c1.595.336 7.643.336 7.643.336s6.048 0 7.643-.336a2.707 2.707 0 001.9-1.912A28.37 28.37 0 0021.75 12a28.37 28.37 0 00-.207-5.502zm-11.893 8.21V9.292l5.154 2.708-5.154 2.708z" />
+              </svg>
+            </a>
+            <a class="footer-icon" href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 8.25H15V6h-1.5a3 3 0 00-3 3v1.5H9v2.25h1.5V18h2.25v-5.25H15L15.75 10.5h-2.25V9a.75.75 0 01.75-.75z" />
+              </svg>
+            </a>
+            <a class="footer-icon" href="https://www.instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 2.75h10A4.25 4.25 0 0121.25 7v10A4.25 4.25 0 0117 21.25H7A4.25 4.25 0 012.75 17V7A4.25 4.25 0 017 2.75zm0 1.5A2.75 2.75 0 004.25 7v10A2.75 2.75 0 007 19.75h10A2.75 2.75 0 0019.75 17V7A2.75 2.75 0 0017 4.25z" />
+                <path d="M17 6.75a.75.75 0 110 1.5.75.75 0 010-1.5zM12 8.25a3.75 3.75 0 11-3.75 3.75A3.75 3.75 0 0112 8.25zm0 1.5A2.25 2.25 0 1014.25 12 2.25 2.25 0 0012 9.75z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="donation-modal" class="invisible fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/60 opacity-0 transition" role="dialog" aria-modal="true" aria-labelledby="donation-modal-title" aria-describedby="donation-modal-desc" aria-hidden="true">
+    <div class="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-8 shadow-2xl">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-rose-500">Seva Offering</p>
+          <h2 id="donation-modal-title" class="mt-2 font-display text-2xl font-semibold text-slate-900">Support Shri Sanatan Mandir</h2>
+        </div>
+        <button type="button" id="donation-modal-close" class="rounded-full border border-rose-200 p-2 text-rose-600 transition hover:bg-rose-50 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2" aria-label="Close donation form">
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <p id="donation-modal-desc" class="mt-4 text-sm text-slate-700">Choose a seva amount to sustain daily worship, festival celebrations, and community outreach programs.</p>
+      <form class="mt-6 space-y-6" aria-label="Donation form">
+        <fieldset>
+          <legend class="sr-only">Select a donation amount</legend>
+          <div class="grid gap-4 sm:grid-cols-3">
+            <label class="donation-option">
+              <input type="radio" name="donation-amount" value="51" class="sr-only" />
+              <span class="donation-label">$51</span>
+            </label>
+            <label class="donation-option">
+              <input type="radio" name="donation-amount" value="108" class="sr-only" />
+              <span class="donation-label">$108</span>
+            </label>
+            <label class="donation-option">
+              <input type="radio" name="donation-amount" value="251" class="sr-only" />
+              <span class="donation-label">$251</span>
+            </label>
+            <label class="donation-option sm:col-span-3">
+              <input type="radio" name="donation-amount" value="custom" class="sr-only" />
+              <span class="donation-label">Custom amount</span>
+            </label>
+          </div>
+        </fieldset>
+        <div>
+          <label for="custom-amount" class="text-sm font-semibold text-slate-900">Custom amount (optional)</label>
+          <div class="mt-2 flex items-center rounded-full border border-amber-200 bg-amber-50 px-4 py-2 shadow-sm focus-within:border-rose-500 focus-within:ring-2 focus-within:ring-rose-500">
+            <span class="text-sm font-semibold text-rose-600">$</span>
+            <input id="custom-amount" type="number" min="1" step="1" placeholder="Enter amount" class="ml-2 w-full border-0 bg-transparent text-sm focus:outline-none" />
+          </div>
+        </div>
+        <button type="submit" class="w-full rounded-full bg-gradient-to-r from-rose-600 to-amber-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-rose-700 hover:to-amber-600 focus:outline-none focus-visible:ring focus-visible:ring-rose-500 focus-visible:ring-offset-2">Continue to Payment</button>
+        <p class="text-xs text-slate-500">You’ll be redirected to our secure payment partner. All donations are tax-deductible.</p>
+      </form>
+    </div>
+  </div>
+
+  <div id="lightbox" class="pointer-events-none fixed inset-0 z-[70] flex items-center justify-center bg-slate-900/90 opacity-0 transition" role="dialog" aria-modal="true" aria-label="Gallery image preview" aria-hidden="true">
+    <button type="button" id="lightbox-close" class="absolute right-6 top-6 rounded-full border border-white/40 p-2 text-white focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900" aria-label="Close image preview">
+      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <figure class="mx-auto max-w-3xl space-y-4 px-6 text-center text-white">
+      <img id="lightbox-image" src="" alt="" class="mx-auto max-h-[70vh] w-full rounded-3xl object-contain shadow-2xl" />
+      <figcaption id="lightbox-caption" class="text-sm text-white/80"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
