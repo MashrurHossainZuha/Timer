@@ -1,11 +1,419 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz Timer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopFlux - Everything You Need Delivered Fast</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button onclick="startQuiz()">Start Quiz</button>
-    <script src="script.js"></script>
+    <header class="top-banner">
+        <div class="container banner-content">
+            <p>Free shipping on orders over $50 · Easy returns within 30 days</p>
+            <button class="link-button" aria-label="View current promotions">Learn More</button>
+        </div>
+    </header>
+
+    <nav class="navbar" aria-label="Primary">
+        <div class="container nav-content">
+            <a class="logo" href="#">Shop<span>Flux</span></a>
+            <form class="search" role="search">
+                <label class="sr-only" for="search-input">Search products</label>
+                <input id="search-input" type="search" placeholder="Search for products, brands and more" aria-label="Search products">
+                <button type="submit" aria-label="Search" title="Search">
+                    <span class="sr-only">Search</span>
+                    🔍
+                </button>
+            </form>
+            <div class="nav-actions">
+                <button class="icon-button" aria-label="Open account menu">👤</button>
+                <button class="icon-button" aria-label="View wishlist">❤</button>
+                <button class="icon-button cart" aria-label="View cart">
+                    🛒
+                    <span class="badge" data-cart-count>3</span>
+                </button>
+                <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation">
+                    ☰
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" hidden>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="#best-sellers">Best Sellers</a>
+            <a href="#flash-sale">Flash Sale</a>
+            <a href="#categories">Categories</a>
+            <a href="#newsletter">Newsletter</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="eyebrow">Mega Electronics Week</p>
+                    <h1 id="hero-heading">Unbeatable Deals on Tech Essentials</h1>
+                    <p class="subtitle">Grab exclusive offers on phones, laptops, smart wearables and more. Limited-time bundles up to 70% off.</p>
+                    <div class="hero-actions">
+                        <a class="primary-button" href="#flash-sale">Shop Flash Sale</a>
+                        <a class="secondary-button" href="#best-sellers">View Best Sellers</a>
+                    </div>
+                    <div class="trust-badges" role="list">
+                        <span role="listitem">⚡ 2-hour delivery in select cities</span>
+                        <span role="listitem">💳 Secure payment protection</span>
+                        <span role="listitem">⭐ 4.9/5 customer rating</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="highlight-card" aria-live="polite">
+                        <h2>Today&apos;s Highlight</h2>
+                        <div class="highlight-product" data-highlight-slider>
+                            <article class="highlight-item" data-active>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=420&q=80" alt="Latest smartphone with vibrant display">
+                                <h3>Vortex X12 5G</h3>
+                                <p class="price">$699 <span class="old-price">$899</span></p>
+                            </article>
+                            <article class="highlight-item">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=420&q=80" alt="High performance laptop">
+                                <h3>ZenPro Ultrabook</h3>
+                                <p class="price">$1,199 <span class="old-price">$1,499</span></p>
+                            </article>
+                            <article class="highlight-item">
+                                <img src="https://images.unsplash.com/photo-1524594154905-114efd0c4e28?auto=format&fit=crop&w=420&q=80" alt="Smart watch on a person&apos;s wrist">
+                                <h3>PulseFit Smartwatch</h3>
+                                <p class="price">$199 <span class="old-price">$249</span></p>
+                            </article>
+                        </div>
+                        <div class="slider-dots" role="tablist" aria-label="Featured products">
+                            <button class="slider-dot" role="tab" aria-selected="true" aria-controls="highlight-1" data-slide="0"></button>
+                            <button class="slider-dot" role="tab" aria-selected="false" aria-controls="highlight-2" data-slide="1"></button>
+                            <button class="slider-dot" role="tab" aria-selected="false" aria-controls="highlight-3" data-slide="2"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flash-sale" class="flash-sale" aria-labelledby="flash-sale-heading">
+            <div class="container flash-content">
+                <div class="flash-text">
+                    <p class="eyebrow">Flash Sale</p>
+                    <h2 id="flash-sale-heading">Deals expiring in <span data-countdown>02:00:00</span></h2>
+                    <p>Don&apos;t miss out on limited-quantity offers. Prices drop every hour across top categories.</p>
+                    <a class="primary-button" href="#">Shop all Flash Deals</a>
+                </div>
+                <div class="flash-grid">
+                    <article class="flash-card">
+                        <span class="badge sale">-55%</span>
+                        <img src="https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=420&q=80" alt="Premium wireless headphones">
+                        <h3>EchoTone Noise Cancelling Headphones</h3>
+                        <p class="price">$129 <span class="old-price">$289</span></p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:72%" aria-label="72 percent claimed"></div>
+                        </div>
+                        <button class="secondary-button">Add to Cart</button>
+                    </article>
+                    <article class="flash-card">
+                        <span class="badge sale">-40%</span>
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=420&q=80" alt="Stylish pair of sneakers">
+                        <h3>StrideMax Running Sneakers</h3>
+                        <p class="price">$89 <span class="old-price">$149</span></p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:54%" aria-label="54 percent claimed"></div>
+                        </div>
+                        <button class="secondary-button">Add to Cart</button>
+                    </article>
+                    <article class="flash-card">
+                        <span class="badge sale">-65%</span>
+                        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=420&q=80" alt="Modern lounge chair">
+                        <h3>NordicComfort Lounge Chair</h3>
+                        <p class="price">$249 <span class="old-price">$699</span></p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:88%" aria-label="88 percent claimed"></div>
+                        </div>
+                        <button class="secondary-button">Add to Cart</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="categories" aria-labelledby="categories-heading">
+            <div class="container">
+                <p class="eyebrow">Top Categories</p>
+                <h2 id="categories-heading">Browse by Interest</h2>
+                <div class="category-grid">
+                    <a class="category-card" href="#" aria-label="Shop smartphones category">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=420&q=80" alt="Collection of modern smartphones">
+                        <div>
+                            <h3>Smartphones</h3>
+                            <p>Latest flagships &amp; budget favorites</p>
+                        </div>
+                    </a>
+                    <a class="category-card" href="#" aria-label="Shop home appliances category">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=420&q=80" alt="Kitchen appliances on a counter">
+                        <div>
+                            <h3>Home Appliances</h3>
+                            <p>Top-rated appliances to simplify life</p>
+                        </div>
+                    </a>
+                    <a class="category-card" href="#" aria-label="Shop fashion collection category">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=420&q=80" alt="Stack of folded clothes">
+                        <div>
+                            <h3>Fashion</h3>
+                            <p>Curated looks for every season</p>
+                        </div>
+                    </a>
+                    <a class="category-card" href="#" aria-label="Shop health and beauty category">
+                        <img src="https://images.unsplash.com/photo-1525286116112-b59af11adad1?auto=format&fit=crop&w=420&q=80" alt="Beauty and wellness products">
+                        <div>
+                            <h3>Health &amp; Beauty</h3>
+                            <p>Glow up essentials and wellness picks</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="new-arrivals" class="product-section" aria-labelledby="new-arrivals-heading">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <p class="eyebrow">New Arrivals</p>
+                        <h2 id="new-arrivals-heading">Fresh Drops Curated Daily</h2>
+                    </div>
+                    <a class="link-button" href="#">See all</a>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=420&q=80" alt="Smart home speaker">
+                        <span class="badge new">New</span>
+                        <h3>EchoSphere Smart Hub</h3>
+                        <p class="price">$169</p>
+                        <button class="primary-button">Add to Cart</button>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1495121553079-4c61bcce1894?auto=format&fit=crop&w=420&q=80" alt="Designer backpack">
+                        <span class="badge new">New</span>
+                        <h3>UrbanTrail Explorer Backpack</h3>
+                        <p class="price">$129</p>
+                        <button class="primary-button">Add to Cart</button>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=420&q=80" alt="Mirrorless camera">
+                        <span class="badge new">New</span>
+                        <h3>Photonix Mirrorless Camera</h3>
+                        <p class="price">$999</p>
+                        <button class="primary-button">Add to Cart</button>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=420&q=80" alt="Running shoes">
+                        <span class="badge new">New</span>
+                        <h3>Velocity Pro Runner</h3>
+                        <p class="price">$149</p>
+                        <button class="primary-button">Add to Cart</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="best-sellers" class="product-section alt" aria-labelledby="best-sellers-heading">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <p class="eyebrow">Best Sellers</p>
+                        <h2 id="best-sellers-heading">Top Rated by Thousands</h2>
+                    </div>
+                    <div class="tabs" role="tablist" aria-label="Best seller categories">
+                        <button class="tab-button" role="tab" aria-selected="true" data-tab="tech">Tech</button>
+                        <button class="tab-button" role="tab" aria-selected="false" data-tab="fashion">Fashion</button>
+                        <button class="tab-button" role="tab" aria-selected="false" data-tab="home">Home</button>
+                    </div>
+                </div>
+                <div class="tab-panels">
+                    <div class="product-grid" data-panel="tech">
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=420&q=80" alt="Gaming controller">
+                            <h3>NovaWave Elite Controller</h3>
+                            <p class="price">$79</p>
+                            <div class="rating" aria-label="Rated 4.8 out of 5">⭐⭐⭐⭐⭐ 4.8</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=420&q=80" alt="Laptop">
+                            <h3>HyperBook Creator 15"</h3>
+                            <p class="price">$1,399</p>
+                            <div class="rating" aria-label="Rated 4.7 out of 5">⭐⭐⭐⭐⭐ 4.7</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=420&q=80" alt="Drone">
+                            <h3>AeroView 4K Drone</h3>
+                            <p class="price">$499</p>
+                            <div class="rating" aria-label="Rated 4.9 out of 5">⭐⭐⭐⭐⭐ 4.9</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=420&q=80" alt="VR headset">
+                            <h3>ImmersiVR Pro</h3>
+                            <p class="price">$399</p>
+                            <div class="rating" aria-label="Rated 4.6 out of 5">⭐⭐⭐⭐ 4.6</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                    </div>
+                    <div class="product-grid" data-panel="fashion" hidden>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=420&q=80" alt="Leather jacket">
+                            <h3>Midnight Rider Leather Jacket</h3>
+                            <p class="price">$259</p>
+                            <div class="rating" aria-label="Rated 4.9 out of 5">⭐⭐⭐⭐⭐ 4.9</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=420&q=80" alt="Luxury watch">
+                            <h3>ChronoLux Heritage Watch</h3>
+                            <p class="price">$349</p>
+                            <div class="rating" aria-label="Rated 4.7 out of 5">⭐⭐⭐⭐⭐ 4.7</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?auto=format&fit=crop&w=420&q=80" alt="Handbag">
+                            <h3>LuxeLine Artisan Tote</h3>
+                            <p class="price">$219</p>
+                            <div class="rating" aria-label="Rated 4.8 out of 5">⭐⭐⭐⭐⭐ 4.8</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=420&q=80" alt="Sneakers">
+                            <h3>Monarch Street Sneakers</h3>
+                            <p class="price">$119</p>
+                            <div class="rating" aria-label="Rated 4.6 out of 5">⭐⭐⭐⭐ 4.6</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                    </div>
+                    <div class="product-grid" data-panel="home" hidden>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=420&q=80" alt="Ceramic dinnerware set">
+                            <h3>TerraCraft Dinner Set</h3>
+                            <p class="price">$89</p>
+                            <div class="rating" aria-label="Rated 4.8 out of 5">⭐⭐⭐⭐⭐ 4.8</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?auto=format&fit=crop&w=420&q=80" alt="Decorative lamp">
+                            <h3>AuraGlow Ambient Lamp</h3>
+                            <p class="price">$59</p>
+                            <div class="rating" aria-label="Rated 4.7 out of 5">⭐⭐⭐⭐⭐ 4.7</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=420&q=80" alt="Comfortable sofa">
+                            <h3>CloudNest Modular Sofa</h3>
+                            <p class="price">$1,099</p>
+                            <div class="rating" aria-label="Rated 4.9 out of 5">⭐⭐⭐⭐⭐ 4.9</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                        <article class="product-card">
+                            <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=420&q=80" alt="Indoor plant">
+                            <h3>Evergreen Fiddle Leaf Fig</h3>
+                            <p class="price">$69</p>
+                            <div class="rating" aria-label="Rated 4.8 out of 5">⭐⭐⭐⭐⭐ 4.8</div>
+                            <button class="secondary-button">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" aria-labelledby="testimonial-heading">
+            <div class="container testimonial-content">
+                <div>
+                    <p class="eyebrow">Customer Love</p>
+                    <h2 id="testimonial-heading">What shoppers are saying</h2>
+                    <p>Trusted by over 2 million customers with 96% satisfaction rate. Your favorite brands with unmatched service.</p>
+                </div>
+                <div class="testimonial-cards" role="list">
+                    <article class="testimonial-card" role="listitem">
+                        <p>“The delivery speed blew me away. I ordered at 8 PM and had my phone the next morning!”</p>
+                        <span>— Amina R.</span>
+                    </article>
+                    <article class="testimonial-card" role="listitem">
+                        <p>“Customer support resolved my query in minutes. Returns are painless and fast.”</p>
+                        <span>— David K.</span>
+                    </article>
+                    <article class="testimonial-card" role="listitem">
+                        <p>“The flash sale deals are unbeatable. Saved over $300 on my home setup.”</p>
+                        <span>— Priya S.</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="newsletter" aria-labelledby="newsletter-heading">
+            <div class="container newsletter-content">
+                <div>
+                    <p class="eyebrow">Stay in the loop</p>
+                    <h2 id="newsletter-heading">Unlock exclusive drops &amp; insider deals</h2>
+                    <p>Sign up for curated picks, seasonal campaigns and first access to limited editions.</p>
+                </div>
+                <form class="newsletter-form">
+                    <label class="sr-only" for="email-input">Email address</label>
+                    <input id="email-input" type="email" placeholder="Enter your email" required>
+                    <button class="primary-button" type="submit">Notify Me</button>
+                    <p class="form-hint">We respect your privacy. Unsubscribe at any time.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="logo" href="#">Shop<span>Flux</span></a>
+                <p>Experience seamless shopping with curated collections, express shipping and trusted service.</p>
+            </div>
+            <div>
+                <h3>Help &amp; Support</h3>
+                <ul>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Returns &amp; Refunds</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Download App</h3>
+                <div class="app-buttons">
+                    <a class="store-button" href="#" aria-label="Download on the App Store"> App Store</a>
+                    <a class="store-button" href="#" aria-label="Get it on Google Play">▶ Play Store</a>
+                </div>
+                <div class="social">
+                    <a href="#" aria-label="Follow on Facebook">📘</a>
+                    <a href="#" aria-label="Follow on Instagram">📸</a>
+                    <a href="#" aria-label="Follow on Twitter">🐦</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span data-current-year></span> ShopFlux. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
