@@ -1,11 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz Timer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glam Haven - Trendy Finds for Girls</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button onclick="startQuiz()">Start Quiz</button>
+    <div class="offer-modal" id="offerModal" aria-hidden="true">
+        <div class="offer-content" role="dialog" aria-modal="true" aria-labelledby="offerTitle">
+            <button class="modal-close" id="closeModal" aria-label="Close offer">&times;</button>
+            <div class="offer-visual">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Limited time accessories offer">
+            </div>
+            <div class="offer-text">
+                <p class="badge">Limited Time</p>
+                <h2 id="offerTitle">Mega Style Fest</h2>
+                <p>Get up to <strong>60% off</strong> on selected fashion, skincare and tech accessories curated especially for girls.</p>
+                <a class="cta" href="#products">Shop the Drop</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="topbar">
+            <div class="topbar-left">
+                <span>📞 +880 1234 567 890</span>
+                <span>✉️ hello@glamhaven.com</span>
+            </div>
+            <div class="topbar-right">
+                <a href="#" aria-label="Track Order">Track Order</a>
+                <a href="#" aria-label="Customer Support">Support</a>
+                <a href="#" aria-label="Become a partner">Partner With Us</a>
+            </div>
+        </div>
+        <div class="main-nav">
+            <div class="logo">Glam Haven</div>
+            <form class="search-bar" role="search">
+                <input type="search" placeholder="Search for outfits, skincare, gadgets..." aria-label="Search products">
+                <button type="submit">Search</button>
+            </form>
+            <nav class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#services">Services</a>
+                <a href="#products">Products</a>
+                <a href="#articles">Articles</a>
+                <a href="#testimonials">Testimonials</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <p class="hero-label">Fresh Arrivals</p>
+                <h1>Everything You Need to Express Your Sparkle</h1>
+                <p>Discover outfits, beauty care, smart wearables and study accessories designed to celebrate modern girls.</p>
+                <div class="hero-actions">
+                    <a href="#products" class="primary-btn">Shop Collections</a>
+                    <a href="#best-products" class="secondary-btn">View Best Picks</a>
+                </div>
+            </div>
+            <div class="hero-slider">
+                <button class="slider-btn prev" aria-label="Previous offer">&#10094;</button>
+                <div class="slider-track" id="sliderTrack">
+                    <article class="slide">
+                        <div class="slide-badge">Beauty Boost</div>
+                        <h3>Glow Essentials Kit</h3>
+                        <p>Vitamin C serums, brightening masks and more in one curated box.</p>
+                        <span class="price-tag">Save 35%</span>
+                    </article>
+                    <article class="slide">
+                        <div class="slide-badge">Campus Ready</div>
+                        <h3>Smart Backpack Combo</h3>
+                        <p>Anti-theft backpack with Bluetooth tracker & stylish water bottle.</p>
+                        <span class="price-tag">Now $59</span>
+                    </article>
+                    <article class="slide">
+                        <div class="slide-badge">Tech Treats</div>
+                        <h3>Crystal Earbuds</h3>
+                        <p>Noise cancelling earbuds with holographic case and 24h battery.</p>
+                        <span class="price-tag">Buy 1 Get 1</span>
+                    </article>
+                    <article class="slide">
+                        <div class="slide-badge">Dress Up</div>
+                        <h3>Weekend Brunch Dress</h3>
+                        <p>Flowy floral maxi dress crafted from breathable organic cotton.</p>
+                        <span class="price-tag">Intro Price $45</span>
+                    </article>
+                    <article class="slide">
+                        <div class="slide-badge">Study Smart</div>
+                        <h3>Focus Planner Set</h3>
+                        <p>Undated planner, pastel pens and stickers to keep goals on track.</p>
+                        <span class="price-tag">Bundle Deal</span>
+                    </article>
+                </div>
+                <button class="slider-btn next" aria-label="Next offer">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <h2 class="section-title">Why Girls Love Shopping With Us</h2>
+            <div class="service-grid">
+                <article class="service-card">
+                    <div class="icon">🚚</div>
+                    <h3>Express Delivery</h3>
+                    <p>Same day dispatch in Dhaka and 48h nationwide delivery service.</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon">💬</div>
+                    <h3>Personal Styling</h3>
+                    <p>Chat with our stylists anytime for outfit advice or gifting ideas.</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon">🔒</div>
+                    <h3>Secure Checkout</h3>
+                    <p>Multiple payment options with SSL protection and easy refunds.</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon">🤝</div>
+                    <h3>Trusted by 25k+ Clients</h3>
+                    <p>Fashion communities, schools and influencers collaborate with us.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="product-collection" id="featured-products">
+            <div class="section-header">
+                <h2 class="section-title">Featured Collections</h2>
+                <a href="#" class="link">Explore All</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Pastel makeup palette">
+                    <div class="product-info">
+                        <h3>Pastel Bloom Palette</h3>
+                        <p>18 shades inspired by cherry blossoms for day to night looks.</p>
+                        <div class="product-footer">
+                            <span class="price">$29</span>
+                            <a class="shop-now" href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80" alt="Girls casual outfit">
+                    <div class="product-info">
+                        <h3>Weekend Denim Set</h3>
+                        <p>Soft denim jacket with matching pleated skirt in cloud blue.</p>
+                        <div class="product-footer">
+                            <span class="price">$65</span>
+                            <a class="shop-now" href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Smart watch for girls">
+                    <div class="product-info">
+                        <h3>Charm Smartwatch</h3>
+                        <p>Heart-rate tracking and pastel straps in lavender, blush & mint.</p>
+                        <div class="product-footer">
+                            <span class="price">$89</span>
+                            <a class="shop-now" href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1513072064288-bd7c8e1c81c8?auto=format&fit=crop&w=600&q=80" alt="Desk accessories set">
+                    <div class="product-info">
+                        <h3>Study Glow Desk Set</h3>
+                        <p>Planner, desk lamp and pen holder to brighten any study corner.</p>
+                        <div class="product-footer">
+                            <span class="price">$49</span>
+                            <a class="shop-now" href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="section-header">
+                <h2 class="section-title">Just Dropped</h2>
+                <p>Handpicked styles and self-care essentials new to the store this week.</p>
+            </div>
+            <div class="product-list">
+                <article class="compact-card">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80" alt="Hair accessories collection">
+                    <div>
+                        <h3>Silk Hair Accessory Set</h3>
+                        <p>Scrunchies, headbands and pins that are gentle on hair.</p>
+                    </div>
+                    <a href="#" class="shop-now">Shop Now</a>
+                </article>
+                <article class="compact-card">
+                    <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=500&q=80" alt="Skincare flatlay">
+                    <div>
+                        <h3>Glow Routine Trio</h3>
+                        <p>Cleanser, hydrating toner and sun gel for humid weather.</p>
+                    </div>
+                    <a href="#" class="shop-now">Shop Now</a>
+                </article>
+                <article class="compact-card">
+                    <img src="https://images.unsplash.com/photo-1542293787938-4d2226c12e77?auto=format&fit=crop&w=500&q=80" alt="Stylish sneakers">
+                    <div>
+                        <h3>Mint Sprint Sneakers</h3>
+                        <p>Lightweight and comfy for long campus walks or weekend hangs.</p>
+                    </div>
+                    <a href="#" class="shop-now">Shop Now</a>
+                </article>
+                <article class="compact-card">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=500&q=80" alt="Bath bombs">
+                    <div>
+                        <h3>Rainbow Bath Bomb Set</h3>
+                        <p>Soothe and sparkle with calming essential oils.</p>
+                    </div>
+                    <a href="#" class="shop-now">Shop Now</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="articles" id="articles">
+            <div class="section-header">
+                <h2 class="section-title">Trending Articles</h2>
+                <a href="#" class="link">View Blog</a>
+            </div>
+            <div class="article-grid">
+                <article class="article-card">
+                    <span class="tag">Style Tips</span>
+                    <h3>5 Outfit Formulas for Instant Confidence</h3>
+                    <p>Build a capsule wardrobe with pieces that easily mix and match.</p>
+                    <a href="#" class="read-more">Read Story</a>
+                </article>
+                <article class="article-card">
+                    <span class="tag">Wellness</span>
+                    <h3>Nighttime Rituals for Glowing Skin</h3>
+                    <p>Our dermatologists share routines crafted for Bangladesh's climate.</p>
+                    <a href="#" class="read-more">Read Story</a>
+                </article>
+                <article class="article-card">
+                    <span class="tag">Community</span>
+                    <h3>Girls in Tech: Meet Our Innovators</h3>
+                    <p>Stories of young creators building apps, robotics clubs and more.</p>
+                    <a href="#" class="read-more">Read Story</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="best-products" id="best-products">
+            <h2 class="section-title">Best Loved Picks</h2>
+            <div class="best-grid">
+                <article class="best-card">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80" alt="Perfume bottle">
+                    <div>
+                        <h3>Blush Aura Perfume</h3>
+                        <p>Signature scent with notes of rose, amber and vanilla.</p>
+                    </div>
+                </article>
+                <article class="best-card">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80" alt="Yoga set">
+                    <div>
+                        <h3>Flex Flow Yoga Kit</h3>
+                        <p>Mat, resistance band and stainless bottle for active days.</p>
+                    </div>
+                </article>
+                <article class="best-card">
+                    <img src="https://images.unsplash.com/photo-1529331587744-54b114f4dd35?auto=format&fit=crop&w=500&q=80" alt="Polaroid camera">
+                    <div>
+                        <h3>Memory Pop Instant Cam</h3>
+                        <p>Capture every moment with pastel frames and filters.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">Voices of Our Community</h2>
+            <div class="testimonial-grid">
+                <figure class="testimonial-card">
+                    <blockquote>
+                        “I love how the style guide helps me pick outfits for school events. Deliveries are always on time!”
+                    </blockquote>
+                    <figcaption>- Ayesha, Fashion Blogger</figcaption>
+                </figure>
+                <figure class="testimonial-card">
+                    <blockquote>
+                        “Their skincare combos are tailored for our weather. My skin has never felt better.”
+                    </blockquote>
+                    <figcaption>- Rifa, University Student</figcaption>
+                </figure>
+                <figure class="testimonial-card">
+                    <blockquote>
+                        “The tech accessories are so fun and functional. Customer service is super friendly too.”
+                    </blockquote>
+                    <figcaption>- Mehzabin, Content Creator</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="brands" id="brands">
+            <h2 class="section-title">Brands We Partner With</h2>
+            <div class="brand-strip">
+                <span>GlowUp Labs</span>
+                <span>Pastel Play</span>
+                <span>Nova Tech</span>
+                <span>Bloom & Co.</span>
+                <span>Urban Daisy</span>
+                <span>StellarFit</span>
+            </div>
+        </section>
+
+        <section class="countdown" id="countdown">
+            <div class="countdown-content">
+                <h2>Flash Sale Countdown</h2>
+                <p>Grab exclusive bundles before the clock hits zero.</p>
+                <div class="timer" id="timer">
+                    <div>
+                        <span id="days">00</span>
+                        <small>Days</small>
+                    </div>
+                    <div>
+                        <span id="hours">00</span>
+                        <small>Hours</small>
+                    </div>
+                    <div>
+                        <span id="minutes">00</span>
+                        <small>Minutes</small>
+                    </div>
+                    <div>
+                        <span id="seconds">00</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+                <a class="primary-btn" href="#products">Claim Offer</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>About Glam Haven</h3>
+                <p>We celebrate every girl's individuality with curated fashion, wellness and lifestyle collections.</p>
+            </div>
+            <div>
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Get Updates</h3>
+                <form class="newsletter">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Glam Haven. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="YouTube">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
