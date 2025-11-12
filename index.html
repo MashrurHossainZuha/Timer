@@ -1,11 +1,443 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz Timer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow & Glam - Girls' Lifestyle Boutique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-uX1e6N2M2JQ3YVJZZzKzbwQ6VykBLL8GMDIS9ZhuttS60F7uO3cu6UytzszbmWzxubUANH3PHk0cQ7P2v5lr0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="startQuiz()">Start Quiz</button>
-    <script src="script.js"></script>
+    <div class="offer-modal" id="offerModal" aria-hidden="true">
+        <div class="offer-modal__content" role="dialog" aria-modal="true" aria-labelledby="offerModalTitle">
+            <button class="offer-modal__close" id="closeOffer" aria-label="Close exclusive offer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="offer-modal__image" role="img" aria-labelledby="offerModalTitle"></div>
+            <div class="offer-modal__details">
+                <p class="offer-modal__badge">Limited Time</p>
+                <h2 id="offerModalTitle">Sparkle Weekend Mega Sale</h2>
+                <p>Unlock 40% off on handpicked glam essentials plus free gifts on orders above $99.</p>
+                <button class="btn btn--light" id="shopOffer">Shop the Drop</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="top-strip">
+            <div class="top-strip__info">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Midnight express delivery in Dhaka – try us tonight!</span>
+            </div>
+            <nav class="top-strip__links" aria-label="Quick actions">
+                <a href="#services"><i class="fa-solid fa-headset"></i> Support</a>
+                <a href="#articles"><i class="fa-solid fa-book-open"></i> Beauty Journal</a>
+                <a href="tel:+8801788000000"><i class="fa-solid fa-phone"></i> +880 1788-000000</a>
+            </nav>
+        </div>
+
+        <div class="primary-nav">
+            <div class="brand">
+                <span class="brand__accent">Glow</span>&amp;Glam
+            </div>
+            <form class="primary-search" role="search" aria-label="Search products">
+                <label class="sr-only" for="primarySearchInput">Search the store</label>
+                <input id="primarySearchInput" type="search" placeholder="Search skincare, accessories, gifts...">
+                <button type="submit" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div class="primary-actions">
+                <a href="#" aria-label="Wishlist"><i class="fa-solid fa-heart"></i></a>
+                <a href="#" aria-label="Account"><i class="fa-solid fa-user"></i></a>
+                <a href="#" aria-label="Bag"><i class="fa-solid fa-bag-shopping"></i><span class="badge">3</span></a>
+            </div>
+        </div>
+
+        <nav class="category-nav" aria-label="Primary">
+            <a href="#hero">New In</a>
+            <a href="#categories">Collections</a>
+            <a href="#products">Skincare</a>
+            <a href="#best-sellers">Top Rated</a>
+            <a href="#testimonials">Stories</a>
+            <a href="#countdown">Hot Deals</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container hero__inner">
+                <div class="hero__copy">
+                    <p class="eyebrow">Glow for every girl</p>
+                    <h1>Discover dreamy essentials curated for bold, brilliant girls.</h1>
+                    <p class="subtitle">From skincare to statement accessories, our collections are crafted to celebrate your sparkle every single day.</p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="#products">Shop Fresh Drops</a>
+                        <a class="btn btn--ghost" href="#articles">Read Beauty Tips</a>
+                    </div>
+                </div>
+                <div class="hero__carousel" data-carousel>
+                    <button class="carousel__control carousel__control--prev" data-carousel-prev aria-label="Previous offer">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel__track" data-slides>
+                        <article class="carousel__slide is-active" data-slide>
+                            <span class="carousel__label">LIMITED</span>
+                            <h3>Cherry Blossom Spa Set</h3>
+                            <p>Complete ritual kit with soothing mist + whipped body butter.</p>
+                            <span class="carousel__price">Now $48 <small>was $72</small></span>
+                        </article>
+                        <article class="carousel__slide" data-slide>
+                            <span class="carousel__label">ONLINE ONLY</span>
+                            <h3>Galaxy Glitter Eye Palette</h3>
+                            <p>12 iridescent shades that shine under every spotlight.</p>
+                            <span class="carousel__price">Bundle $35</span>
+                        </article>
+                        <article class="carousel__slide" data-slide>
+                            <span class="carousel__label">BUNDLE</span>
+                            <h3>Weekend Self-Care Trunk</h3>
+                            <p>Silk scrunchies, aromatherapy candle &amp; vitamin glow mask.</p>
+                            <span class="carousel__price">Save 30%</span>
+                        </article>
+                        <article class="carousel__slide" data-slide>
+                            <span class="carousel__label">TRENDING</span>
+                            <h3>Pastel Dream Sneakers</h3>
+                            <p>Ultra-light kicks with rainbow laces &amp; cloud foam comfort.</p>
+                            <span class="carousel__price">Only $59</span>
+                        </article>
+                        <article class="carousel__slide" data-slide>
+                            <span class="carousel__label">VIP PICK</span>
+                            <h3>Crystal Bloom Fragrance</h3>
+                            <p>Signature scent infused with jasmine petals &amp; cashmere musk.</p>
+                            <span class="carousel__price">Members $89</span>
+                        </article>
+                    </div>
+                    <button class="carousel__control carousel__control--next" data-carousel-next aria-label="Next offer">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel__dots" data-dots>
+                        <button class="is-active" data-dot aria-label="Slide 1"></button>
+                        <button data-dot aria-label="Slide 2"></button>
+                        <button data-dot aria-label="Slide 3"></button>
+                        <button data-dot aria-label="Slide 4"></button>
+                        <button data-dot aria-label="Slide 5"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container services__grid">
+                <article class="service-card">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Express Delivery</h3>
+                    <p>Same-day delivery within the city and tracked shipping nationwide.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>Complimentary Gifting</h3>
+                    <p>Free handwritten notes, luxe wrapping, and surprise samples every time.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fa-solid fa-user-nurse"></i>
+                    <h3>Beauty Concierge</h3>
+                    <p>Video consultations with our certified skincare coaches &amp; stylists.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <h3>Trusted by Girls</h3>
+                    <p>45k+ five star reviews from confident girls across the country.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Shop by mood &amp; magic</h2>
+                    <p>Bold silhouettes, cozy rituals, power accessories – pick the vibe that speaks to you.</p>
+                </div>
+                <div class="category-grid">
+                    <article class="category-card category-card--tall-left">
+                        <div class="category-card__content">
+                            <h3>Glow Rituals</h3>
+                            <p>Serums, masks &amp; rollers for midnight spa nights.</p>
+                            <a class="btn btn--light" href="#products">Shop Now</a>
+                        </div>
+                    </article>
+                    <article class="category-card category-card--mini">
+                        <div class="category-card__content">
+                            <h3>Campus Chic</h3>
+                            <p>Backpacks, badges &amp; tech sleeves.</p>
+                            <a class="btn btn--light" href="#products">Shop Now</a>
+                        </div>
+                    </article>
+                    <article class="category-card category-card--mini">
+                        <div class="category-card__content">
+                            <h3>Runway Ready</h3>
+                            <p>Party dresses &amp; dazzling heels.</p>
+                            <a class="btn btn--light" href="#products">Shop Now</a>
+                        </div>
+                    </article>
+                    <article class="category-card category-card--tall-right">
+                        <div class="category-card__content">
+                            <h3>Power Accessories</h3>
+                            <p>Statement jewelry, limited-edition watches &amp; more.</p>
+                            <a class="btn btn--light" href="#products">Shop Now</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-gallery" id="products">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Fresh drops you will love</h2>
+                    <p>Curated by our style scouts – all under one pastel-perfect roof.</p>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-card__image product-card__image--rose"></div>
+                        <div class="product-card__body">
+                            <span class="product-card__tag">New</span>
+                            <h3>Rose Quartz Facial Set</h3>
+                            <p>Cooling facial roller + gua sha duo packed in velvet pouch.</p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$42</span>
+                                <button class="btn btn--ghost">Shop Now</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image product-card__image--lavender"></div>
+                        <div class="product-card__body">
+                            <span class="product-card__tag">Editor&apos;s pick</span>
+                            <h3>Lavender Cloud Hoodie</h3>
+                            <p>Oversized cloud fleece with hidden phone pocket &amp; thumbholes.</p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$65</span>
+                                <button class="btn btn--ghost">Shop Now</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image product-card__image--mint"></div>
+                        <div class="product-card__body">
+                            <span class="product-card__tag">Limited</span>
+                            <h3>Minty Dream Backpack</h3>
+                            <p>Ergonomic straps, laptop compartment &amp; charm kit included.</p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$58</span>
+                                <button class="btn btn--ghost">Shop Now</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-card__image product-card__image--sunset"></div>
+                        <div class="product-card__body">
+                            <span class="product-card__tag">Trending</span>
+                            <h3>Sunset Shimmer Lip Oil</h3>
+                            <p>Vitamin E infused gloss with reactive tint and subtle sparkle.</p>
+                            <div class="product-card__footer">
+                                <span class="product-card__price">$19</span>
+                                <button class="btn btn--ghost">Shop Now</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="articles" id="articles">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Inspiration from our beauty journal</h2>
+                    <p>Expert guides and dreamy routines to keep your sparkle on schedule.</p>
+                </div>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <span class="article-card__category">Skin SOS</span>
+                        <h3>5 steps to glass skin before prom night</h3>
+                        <p>Our aestheticians share a glow recipe using products you already love.</p>
+                        <a href="#" class="article-card__link">Read story <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="article-card">
+                        <span class="article-card__category">Style Edit</span>
+                        <h3>Layering jewellery without the tangle</h3>
+                        <p>Mix metals, charms, and chokers – the new rules for fearless accessorising.</p>
+                        <a href="#" class="article-card__link">Read story <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="article-card">
+                        <span class="article-card__category">Wellness</span>
+                        <h3>Sunday reset rituals for student queens</h3>
+                        <p>Journal prompts, bath brews and playlists to refill your joy.</p>
+                        <a href="#" class="article-card__link">Read story <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="best-sellers" id="best-sellers">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Most-loved best sellers</h2>
+                    <p>Picked by our community for unbeatable quality and vibes.</p>
+                </div>
+                <div class="best-grid">
+                    <article class="best-card">
+                        <h3>Opal Glow Hair Kit</h3>
+                        <p>Heatless curl ribbons, satin bonnet and leave-in shimmer spray.</p>
+                        <div class="best-card__meta">
+                            <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <span class="sold">2.3k sold</span>
+                        </div>
+                    </article>
+                    <article class="best-card">
+                        <h3>Blush Crush Cheek Duo</h3>
+                        <p>Buildable cream + powder pair for all-day rosy glow.</p>
+                        <div class="best-card__meta">
+                            <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                            <span class="sold">1.9k sold</span>
+                        </div>
+                    </article>
+                    <article class="best-card">
+                        <h3>Dreamscape Planner</h3>
+                        <p>Goal-tracking spreads, holographic stickers and mood boards.</p>
+                        <div class="best-card__meta">
+                            <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                            <span class="sold">3.5k sold</span>
+                        </div>
+                    </article>
+                    <article class="best-card">
+                        <h3>Velvet Bloom Perfume Oil</h3>
+                        <p>Pocket-sized roller with notes of peony, pear and amber.</p>
+                        <div class="best-card__meta">
+                            <span class="rating"><i class="fa-solid fa-star"></i> 4.7</span>
+                            <span class="sold">1.5k sold</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Girls who glow with us</h2>
+                    <p>Real words from our vibrant community.</p>
+                </div>
+                <div class="testimonial-grid">
+                    <article class="testimonial-card">
+                        <blockquote>
+                            “The concierge matched me with the perfect skincare ritual for my exams week. My skin has never been calmer!”
+                        </blockquote>
+                        <p class="testimonial-card__name">Anika Rahman</p>
+                        <span class="testimonial-card__role">Student &amp; Debate Champion</span>
+                    </article>
+                    <article class="testimonial-card">
+                        <blockquote>
+                            “Their delivery is faster than my cravings! Loved the personalized note and the sparkly packaging.”
+                        </blockquote>
+                        <p class="testimonial-card__name">Nabila Chowdhury</p>
+                        <span class="testimonial-card__role">Entrepreneur</span>
+                    </article>
+                    <article class="testimonial-card">
+                        <blockquote>
+                            “The campus chic collection keeps my outfits on point without breaking the budget. Totally obsessed!”
+                        </blockquote>
+                        <p class="testimonial-card__name">Tarin Ahmed</p>
+                        <span class="testimonial-card__role">Fashion Blogger</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="brands" id="brands">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Brands we collaborate with</h2>
+                    <p>Premium and emerging labels that trust Glow &amp; Glam.</p>
+                </div>
+                <div class="brand-rail">
+                    <span class="brand-chip">LunaBelle</span>
+                    <span class="brand-chip">Aurora Labs</span>
+                    <span class="brand-chip">Peony &amp; Pearl</span>
+                    <span class="brand-chip">StellarFit</span>
+                    <span class="brand-chip">Blossom Bloom</span>
+                    <span class="brand-chip">Prism Shoes</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown" id="countdown">
+            <div class="container countdown__inner" data-countdown>
+                <div class="countdown__copy">
+                    <h2>Glow Festival starts soon</h2>
+                    <p>Reserve your basket now – the first 100 shoppers get surprise sparkle boxes.</p>
+                    <a class="btn btn--primary" href="#products">Set a Reminder</a>
+                </div>
+                <div class="countdown__timer">
+                    <div class="countdown__unit">
+                        <span data-days>00</span>
+                        <small>Days</small>
+                    </div>
+                    <div class="countdown__unit">
+                        <span data-hours>00</span>
+                        <small>Hours</small>
+                    </div>
+                    <div class="countdown__unit">
+                        <span data-minutes>00</span>
+                        <small>Minutes</small>
+                    </div>
+                    <div class="countdown__unit">
+                        <span data-seconds>00</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <div class="brand">
+                    <span class="brand__accent">Glow</span>&amp;Glam
+                </div>
+                <p>Your one-stop boutique for everything bright, brave and beautiful.</p>
+                <div class="footer__socials">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <h3>Shop</h3>
+                <a href="#categories">Collections</a>
+                <a href="#products">New Arrivals</a>
+                <a href="#best-sellers">Best Sellers</a>
+            </div>
+            <div class="footer__links">
+                <h3>Support</h3>
+                <a href="#services">Customer Care</a>
+                <a href="#articles">Beauty Journal</a>
+                <a href="#countdown">Offers</a>
+            </div>
+            <div class="footer__signup">
+                <h3>Stay in the glow</h3>
+                <p>Join our newsletter for exclusive invites and member-only drops.</p>
+                <form class="footer__form">
+                    <label class="sr-only" for="newsletterEmail">Email address</label>
+                    <input id="newsletterEmail" type="email" placeholder="Enter your email">
+                    <button type="submit" class="btn btn--primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <p class="footer__note">&copy; <span id="currentYear"></span> Glow &amp; Glam. Crafted with love for dazzling girls everywhere.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
