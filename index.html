@@ -1,11 +1,381 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz Timer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blush Avenue Boutique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-T2N1HfR6Eyh3QqvGSQt1zAr72Xd1LSeX776BF3nf6/Dr7fP5AnbcW2CYwiVdc+GqORdzdrIW6DCQE4kYesm0kg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-GYBcg1DaY/qN7n0ANKPO/tUMGAfJOyrUo9qeyp1g0K1TKoPY1TGVtC6zqD2V/Ik2Vq6KYFAsktwVqCPmQY3FGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="startQuiz()">Start Quiz</button>
+    <div class="top-bar">
+        <div class="top-bar-contact">
+            <a href="mailto:hello@blushavenue.com"><i class="fa-solid fa-envelope"></i> hello@blushavenue.com</a>
+            <a href="tel:+8801770001122"><i class="fa-solid fa-phone"></i> +880 1770-001-122</a>
+        </div>
+        <div class="top-bar-social">
+            <a href="https://facebook.com" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/8801770001122" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <header class="main-header" id="main-header">
+        <div class="logo">Blush Avenue</div>
+        <nav class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#collections">Product Details</a>
+            <a href="#best-products">Cards</a>
+            <a href="#checkout">Check Out</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn ghost">Recharge</button>
+            <button class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
+            <button class="btn ghost"><i class="fa-solid fa-heart"></i> Wishlist</button>
+            <button class="icon-btn" aria-label="Profile"><i class="fa-solid fa-user"></i></button>
+        </div>
+        <button class="menu-toggle" aria-label="Open Menu"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="150">
+                <p class="eyebrow">Welcome to Blush Avenue</p>
+                <h1>Discover Signature Styles for Every Beautiful Moment</h1>
+                <p class="subtext">Curated collections for her, him and the little ones with luxe fabrics, soft tones and bespoke craftsmanship.</p>
+                <div class="hero-actions">
+                    <a href="#collections" class="btn">Browse Categories</a>
+                    <a href="#best-products" class="btn ghost">Shop Best Sellers</a>
+                </div>
+            </div>
+            <div class="hero-carousel" data-aos="fade-left" data-aos-delay="200">
+                <div class="carousel-track">
+                    <article class="hero-card">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Elegant pastel dress">
+                        <div class="hero-card-content">
+                            <h3>Pastel Silk Gown</h3>
+                            <p>Graceful silhouettes in blush hues for timeless evenings.</p>
+                        </div>
+                    </article>
+                    <article class="hero-card">
+                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80" alt="Menswear look">
+                        <div class="hero-card-content">
+                            <h3>Classic Menswear</h3>
+                            <p>Sharp tailoring reimagined with rose beige accents.</p>
+                        </div>
+                    </article>
+                    <article class="hero-card">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Kids fashion">
+                        <div class="hero-card-content">
+                            <h3>Mini Luxe</h3>
+                            <p>Soft cotton layers for little dreamers and doers.</p>
+                        </div>
+                    </article>
+                    <article class="hero-card">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Accessories">
+                        <div class="hero-card-content">
+                            <h3>Statement Accessories</h3>
+                            <p>Polished essentials to elevate every curated look.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="carousel-dots" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <section class="support" id="about">
+            <div class="support-card" data-aos="fade-up">
+                <i class="fa-solid fa-headset"></i>
+                <h3>Dedicated Support</h3>
+                <p>Concierge-level assistance via hotline, chat and WhatsApp 24/7.</p>
+                <a class="support-link" href="tel:+8801770001122">Call our stylist</a>
+            </div>
+            <div class="support-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-truck"></i>
+                <h3>Express Delivery</h3>
+                <p>Same-day delivery across Dhaka city with real-time tracking updates.</p>
+                <a class="support-link" href="#">Delivery details</a>
+            </div>
+            <div class="support-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-gem"></i>
+                <h3>Premium Assurance</h3>
+                <p>Every piece is hand inspected for fabrics, stitching and finish.</p>
+                <a class="support-link" href="#">Read our promise</a>
+            </div>
+            <div class="support-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-star"></i>
+                <h3>Client Love</h3>
+                <p>“The detailing is exquisite – feels like a personal styling session.”</p>
+                <a class="support-link" href="#testimonials">See reviews</a>
+            </div>
+        </section>
+
+        <section class="best-products" id="best-products">
+            <div class="section-header" data-aos="fade-up">
+                <p class="eyebrow">Best Selling</p>
+                <h2>Our Most Adored Pieces</h2>
+                <p class="subtext">Luxurious essentials curated with soft palettes, thoughtful textures and timeless tailoring.</p>
+            </div>
+            <div class="product-grid">
+                <article class="product-card" data-aos="zoom-in">
+                    <span class="badge">New</span>
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Blush midi dress">
+                    <div class="product-body">
+                        <h3>Blush Midi Dress</h3>
+                        <p>Soft blush pink pleated midi crafted in organza.</p>
+                        <div class="product-meta">
+                            <span class="price">৳4,990</span>
+                            <button class="btn add-to-cart" data-product="Blush Midi Dress">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="badge accent">Hot</span>
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80" alt="Men's suit">
+                    <div class="product-body">
+                        <h3>Rose Beige Suit</h3>
+                        <p>Structured linen suit with tonal stitching and pearl buttons.</p>
+                        <div class="product-meta">
+                            <span class="price">৳6,450</span>
+                            <button class="btn add-to-cart" data-product="Rose Beige Suit">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Kids dress">
+                    <div class="product-body">
+                        <h3>Dreamer Kids Set</h3>
+                        <p>Cotton candy co-ord with whisper soft lining for tiny trendsetters.</p>
+                        <div class="product-meta">
+                            <span class="price">৳2,150</span>
+                            <button class="btn add-to-cart" data-product="Dreamer Kids Set">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Accessory">
+                    <div class="product-body">
+                        <h3>Crystal Bloom Bag</h3>
+                        <p>Hand-embellished minaudière with crystal studded clasp.</p>
+                        <div class="product-meta">
+                            <span class="price">৳3,790</span>
+                            <button class="btn add-to-cart" data-product="Crystal Bloom Bag">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="collections" id="collections">
+            <div class="section-header" data-aos="fade-up">
+                <p class="eyebrow">Curated by Category</p>
+                <h2>Women · Men · Kids</h2>
+                <p class="subtext">Explore specially curated edits for every lifestyle – from deep-cut couture to everyday luxe layers.</p>
+            </div>
+            <div class="collection-columns">
+                <div class="collection-card" data-aos="fade-right">
+                    <h3>Deep Cut Divas</h3>
+                    <p>Statement gowns, corseted blazers and dreamy satin sets.</p>
+                    <ul>
+                        <li>Evening couture</li>
+                        <li>Occasion sarees</li>
+                        <li>Power jumpsuits</li>
+                        <li>Signature accessories</li>
+                    </ul>
+                </div>
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Gentleman Edit</h3>
+                    <p>Classic tailoring infused with modern rose beige accents.</p>
+                    <ul>
+                        <li>Premium blazers</li>
+                        <li>Weekend linen</li>
+                        <li>Heritage panjabi</li>
+                        <li>Luxury footwear</li>
+                    </ul>
+                </div>
+                <div class="collection-card" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Girls & Kids</h3>
+                    <p>Playful layers, twirl-ready skirts and cozy knitwear.</p>
+                    <ul>
+                        <li>Mini couture</li>
+                        <li>Festive frocks</li>
+                        <li>Dreamy sleepwear</li>
+                        <li>Charm accessories</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="trending" id="checkout">
+            <div class="section-header" data-aos="fade-up">
+                <p class="eyebrow">Trending Now</p>
+                <h2>Exclusive Drops & Flash Deals</h2>
+                <p class="subtext">Hand-picked collections with limited time offers. Shop now before they slip away.</p>
+            </div>
+            <div class="trending-grid">
+                <article class="trend-card" data-aos="fade-up">
+                    <h3>Now Trending</h3>
+                    <p>Discover the pieces loved by the community this week.</p>
+                    <ul>
+                        <li>Powder blush trench</li>
+                        <li>Silk tie crop top</li>
+                        <li>Crystal knit cardigan</li>
+                    </ul>
+                </article>
+                <article class="trend-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Best Sellers</h3>
+                    <p>Restocked just for you – iconic silhouettes that always sell out.</p>
+                    <ul>
+                        <li>Rose quartz heels</li>
+                        <li>Tailored co-ord</li>
+                        <li>Gentleman linen set</li>
+                    </ul>
+                </article>
+                <article class="trend-card countdown" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Flash Sale</h3>
+                    <p><span id="countdown-timer">02:12:45</span> left | Up to <strong>35% OFF</strong></p>
+                    <div class="countdown-clock">
+                        <div class="time-box">
+                            <span class="number" id="hours">00</span>
+                            <span class="label">Hours</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number" id="minutes">00</span>
+                            <span class="label">Minutes</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number" id="seconds">00</span>
+                            <span class="label">Seconds</span>
+                        </div>
+                    </div>
+                    <button class="btn">Shop Flash Deals</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="phone-highlight" id="phone">
+            <div class="phone-image" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=600&q=80" alt="Mobile shopping">
+                <div class="phone-overlay"></div>
+            </div>
+            <div class="phone-content" data-aos="fade-left" data-aos-delay="100">
+                <p class="eyebrow">Shop On The Go</p>
+                <h2>Experience Blush Avenue on Your Phone</h2>
+                <p class="subtext">Elegant browsing, personalized recommendations and secure checkout tailored for your mobile lifestyle.</p>
+                <div class="download-links">
+                    <a href="#" class="btn"><i class="fa-brands fa-google-play"></i> Google Play</a>
+                    <a href="#" class="btn ghost"><i class="fa-brands fa-apple"></i> App Store</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="section-header" data-aos="fade-up">
+                <p class="eyebrow">Client Stories</p>
+                <h2>Loved by Discerning Shoppers</h2>
+                <p class="subtext">Hear from our community about the craftsmanship, care and premium service they adore.</p>
+            </div>
+            <div class="testimonial-carousel" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-track">
+                    <article class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80" alt="Client portrait">
+                        <blockquote>“The fabrics feel heavenly and the packaging is a keepsake. Delivery arrived in under 4 hours.”</blockquote>
+                        <p class="name">Ayesha Rahman</p>
+                        <p class="role">Entrepreneur</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Client portrait">
+                        <blockquote>“Our family outfits were perfectly coordinated. The stylist made the entire process effortless.”</blockquote>
+                        <p class="name">Nazia Ahmed</p>
+                        <p class="role">Creative Director</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=200&q=80" alt="Client portrait">
+                        <blockquote>“Love the subtle tones and premium finish. It’s my go-to boutique for every celebration.”</blockquote>
+                        <p class="name">Fariha Islam</p>
+                        <p class="role">Event Curator</p>
+                    </article>
+                </div>
+                <div class="testimonial-dots" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <section class="instagram" id="contact">
+            <div class="section-header" data-aos="fade-up">
+                <p class="eyebrow">Shop Our Insta</p>
+                <h2>Follow @blushavenue</h2>
+                <p class="subtext">Peek into behind-the-scenes, new drops and styling sessions directly from our studio.</p>
+            </div>
+            <div class="insta-grid">
+                <a href="#" class="insta-card" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Insta 1"></a>
+                <a href="#" class="insta-card" data-aos="zoom-in" data-aos-delay="50"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Insta 2"></a>
+                <a href="#" class="insta-card" data-aos="zoom-in" data-aos-delay="100"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Insta 3"></a>
+                <a href="#" class="insta-card" data-aos="zoom-in" data-aos-delay="150"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=400&q=80" alt="Insta 4"></a>
+                <a href="#" class="insta-card" data-aos="zoom-in" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=400&q=80" alt="Insta 5"></a>
+                <a href="#" class="insta-card" data-aos="zoom-in" data-aos-delay="250"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Insta 6"></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>Blush Avenue</h3>
+                <p>Premium fashion destination inspired by blush tones and curated craftsmanship.</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h4>Customer Care</h4>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="#">Our Story</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="mailto:hello@blushavenue.com">hello@blushavenue.com</a>
+                    <a href="tel:+8801770001122">+880 1770-001-122</a>
+                    <a href="#">Banani, Dhaka</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> Blush Avenue Boutique. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://facebook.com" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/8801770001122" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/8801770001122" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <div class="newsletter-popup" id="newsletter-popup" role="dialog" aria-modal="true" aria-labelledby="newsletter-title">
+        <div class="newsletter-content">
+            <button class="close-popup" id="close-popup" aria-label="Close newsletter"><i class="fa-solid fa-xmark"></i></button>
+            <p class="eyebrow">Limited Offer</p>
+            <h3 id="newsletter-title">Unlock 15% Off Your First Order</h3>
+            <p>Join our newsletter to receive styling tips, early access and invitations to private previews.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" aria-label="Email address">
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-GtxZkYzfAzS/fWznuaCG2lLBVmOAXoJ2i8LojRxurx8WcN6iYG3PaY5E9O+V40YxDCEV4VpWw2D2kLomPvKg3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html>
